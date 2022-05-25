@@ -66,23 +66,20 @@ function displayPrompt() {
 function displayTime() {
     timeEL.textContent = 'Time left: ' + timeLeft;
 }
-function setTime() {
+
+startBtn.addEventListener('click', function() {
     var timeInterval = setInterval(function () {
         timeLeft--;
         displayTime();
-
+    
         if (timeLeft === 0) {
+            alert('Time is up!')
             clearInterval(timeInterval);
         }
     }, 1000);
-}
-
-startBtn.addEventListener('click', function () {
-    prompt = 'start';
 
 })
 
-setTime();
 
 
 
