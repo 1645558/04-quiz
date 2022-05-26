@@ -112,13 +112,13 @@ function displayTime() {
 }
 
 answerForQuestions.addEventListener('click', function () {
-    displayAnswers();
-    questionsTextEL.textContent = questions[0].question;
     console.log('x has been clicked');
-    
+
     if (currentQuestion < questions.length) {
-        currentQuestion++;
+        questions[currentQuestion]++;
     }
+    displayAnswers();
+
 })
 
 startBtn.addEventListener('click', function () {
