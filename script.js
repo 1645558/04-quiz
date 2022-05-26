@@ -3,12 +3,9 @@ var startEL = document.querySelector('#starting')
 var quizEL = document.querySelector('#quiz');
 var endEL = document.querySelector('#end');
 var timeEL = document.querySelector('#timer');
-var submitBtn = document.querySelector('submit');
+var submitBtn = document.querySelector('#submit');
 var questionsTextEL = document.querySelector('#questions-text');
-var choiceA = document.querySelector('#A');
-var choiceB = document.querySelector('#B');
-var choiceC = document.querySelector('#C');
-var choiceD = document.querySelector('#D');
+var answerForQuestions = document.querySelector('.answer-buttons')
 
 var highScore = 0;
 
@@ -37,20 +34,13 @@ function displayPrompt() {
 }
 
 function displayAnswers() {
-    console.log(questions[0].answers);
 
     questionsTextEL.textContent = questions[0].question;
 
     for (var i = 0; i < document.getElementsByClassName('answer-buttons').length; i++) {
-        console.log(questions[i].answers[i]);
         var choice = questions[0].answers[i];
-        console.log(document.getElementsByClassName('answer-buttons')[i]);
         var button = document.getElementsByClassName('answer-buttons')[i];
         button.textContent = choice.text
-    }
-
-    if (currentQuestion < questions.length) {
-        currentQuestion++;
     }
 
 }
@@ -114,12 +104,22 @@ var questions = [
 
 
 function init() {
-    displayPrompt()
+    displayPrompt();
 }
 
 function displayTime() {
     timeEL.textContent = 'Time left: ' + timeLeft;
 }
+
+answerForQuestions.addEventListener('click', function () {
+    displayAnswers();
+    questionsTextEL.textContent = questions[0].question;
+    console.log('x has been clicked');
+    
+    if (currentQuestion < questions.length) {
+        currentQuestion++;
+    }
+})
 
 startBtn.addEventListener('click', function () {
     prompts = 'quiz';
