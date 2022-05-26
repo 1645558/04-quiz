@@ -34,12 +34,14 @@ function displayPrompt() {
     }
 }
 
-function (setNextQuestion) {
-
+function startGame() {
+    currentQuestions = 0
 }
 
-function (selectAnswer) {
-
+function displayQuestions() {
+    for (var i=0; i < questions.length; i++) {
+        
+    } 
 }
 
 
@@ -100,10 +102,6 @@ function init() {
     displayPrompt()
 }
 
-function displayQuestions() {
-    questionsEL.textContent = questions[0];
-}
-
 function displayTime() {
     timeEL.textContent = 'Time left: ' + timeLeft;
 }
@@ -111,7 +109,6 @@ function displayTime() {
 startBtn.addEventListener('click', function() {
     prompts = 'quiz';
     displayPrompt();
-    displayQuestions()
     var timeInterval = setInterval(function () {
         timeLeft--;
         displayTime();
@@ -120,6 +117,8 @@ startBtn.addEventListener('click', function() {
             clearInterval(timeInterval);
         }
     }, 1000);
+    startGame();
+
 });
 init()
 
