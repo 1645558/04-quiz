@@ -34,33 +34,33 @@ function displayPrompt() {
     }
 }
 
-function startGame() {
-    currentQuestions = 0
+function displayAnswers() {
+    console.log(questions[0])
 }
 
 function displayQuestions() {
-    console.log(questions[0].asswers);
+    console.log(questions[0].answers);
     var answers = questions[0].answers;
 
-    for (var i=0; i < document.getElementsByClassName('answer-buttons').length; i++) {
+    for (var i = 0; i < document.getElementsByClassName('answer-buttons').length; i++) {
         console.log(questions[i].answers[i]);
         var choice = questions[0].answers[i];
         console.log(document.getElementsByClassName('answer-buttons')[i]);
         var button = document.getElementsByClassName('answer-buttons')[i];
         button.textContent = choice.text
-    } 
+    }
 }
-
 
 var questions = [
     {
         question: 'What does HTML stand for?',
         answers: [
-            { text: 'Hypertext Markup Language', correct: true },
+            { text: 'Hypertext Markup Language', correct: false },
             { text: 'Hypertext Maker Language', correct: false },
-            { text: 'Hometext Marker Language', correct: false },
+            { text: 'Hometext Markup Language', correct: true },
             { text: 'None of the above', correct: false }
         ]
+          
     },
     {
         question: 'What does * do in CSS?',
@@ -69,7 +69,7 @@ var questions = [
             { text: 'Change the header elements', correct: false },
             { text: 'Changes the style of everything on the page', correct: true },
             { text: 'Moves elements by 10px', correct: false }
-            
+
         ]
     },
     {
@@ -80,7 +80,7 @@ var questions = [
             { text: 'H1', correct: true },
             { text: 'H6', correct: false }
         ]
-        
+
     },
     {
         question: 'What do you put around a string?',
@@ -90,8 +90,8 @@ var questions = [
             { text: 'Pound sign', correct: false },
             { text: 'Angled brackets', correct: false }
         ]
-        
-    }, 
+
+    },
     {
         question: 'What are the keys you press to get the starter code for HTML?',
         answers: [
@@ -101,9 +101,9 @@ var questions = [
             { text: '! + Tab', correct: true }
         ]
     }
-    
+
 ];
-    
+
 
 function init() {
     displayPrompt()
@@ -113,7 +113,7 @@ function displayTime() {
     timeEL.textContent = 'Time left: ' + timeLeft;
 }
 
-startBtn.addEventListener('click', function() {
+startBtn.addEventListener('click', function () {
     prompts = 'quiz';
     displayPrompt();
     var timeInterval = setInterval(function () {
@@ -124,11 +124,11 @@ startBtn.addEventListener('click', function() {
             clearInterval(timeInterval);
         }
     }, 1000);
-    startGame();
 
 });
 init()
 displayQuestions()
+displayAnswers()
 
 
 
