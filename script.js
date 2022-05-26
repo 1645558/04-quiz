@@ -40,6 +40,8 @@ function displayAnswers() {
     console.log(questions[0].answers);
     var answers = questions[0].answers;
 
+    questionsEL.textContent = questions[0].question;
+
     for (var i = 0; i < document.getElementsByClassName('answer-buttons').length; i++) {
         console.log(questions[i].answers[i]);
         var choice = questions[0].answers[i];
@@ -50,12 +52,6 @@ function displayAnswers() {
 
 }
 
-function displayQuestions() {
-    for (var i = 0; i < questions.length; i++) {
-        console.log(questions[i]);
-        quizEL;
-    }
-}
 
 var questions = [
     {
@@ -138,7 +134,6 @@ startBtn.addEventListener('click', function () {
 
 });
 init();
-displayQuestions();
 displayAnswers();
 
 
