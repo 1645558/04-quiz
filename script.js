@@ -4,11 +4,13 @@ var quizEL = document.querySelector('#quiz');
 var endEL = document.querySelector('#end');
 var timeEL = document.querySelector('#timer');
 var submitBtn = document.querySelector('submit');
-var questionsEL = document.querySelector('#questions')
-var choiceA = document.querySelector('#A')
-var choiceB = document.querySelector('#B')
-var choiceC = document.querySelector('#C')
-var choiceD = document.querySelector('#D')
+var questionsEL = document.querySelector('#questions');
+var choiceA = document.querySelector('#A');
+var choiceB = document.querySelector('#B');
+var choiceC = document.querySelector('#C');
+var choiceD = document.querySelector('#D');
+
+var highScore = 0;
 
 var prompts = 'starting';
 
@@ -32,35 +34,67 @@ function displayPrompt() {
     }
 }
 
+function (setNextQuestion) {
+
+}
+
+function (selectAnswer) {
+
+}
+
+
 var questions = [
     {
-        question: 'What does HTML stand for?\n(a) Hypertext Markup Language\n\
-        (b) Hypertext Maker Language\n(c) Hometext Marker Language\n(d) None of the above',
-        answer: 'a'
+        question: 'What does HTML stand for?',
+        answers: [
+            { text: 'Hypertext Markup Language', correct: true },
+            { text: 'Hypertext Maker Language', correct: false },
+            { text: 'Hometext Marker Language', correct: false },
+            { text: 'None of the above', correct: false }
+        ]
     },
     {
-        question: 'What does * do in CSS?\n(a) Put snowflakes on the page\n\
-        (b) Change the header elements\n(c) CHanges the style of everything on the page\n\
-        (d) Moves elements by 10px',
-        answer: 'c' 
+        question: 'What does * do in CSS?',
+        answers: [
+            { text: 'Put snowflakes on the page', correct: false },
+            { text: 'Change the header elements', correct: false },
+            { text: 'Changes the style of everything on the page', correct: true },
+            { text: 'Moves elements by 10px', correct: false }
+            
+        ]
     },
     {
-        question: 'What is the bigest header on an html page?\n(a) H2\n\
-        (b) H1\n(c) H3\n(d) H6',
-        answer: 'b'
+        question: 'What is the bigest header on an html page?',
+        answers: [
+            { text: 'H2', correct: false },
+            { text: 'H3', correct: false },
+            { text: 'H1', correct: true },
+            { text: 'H6', correct: false }
+        ]
+        
     },
     {
-        question: 'What do you put around a string?\n(a) Paranthesis\n\
-        (b) Quotations\n(c) Pound sign\n(d) Angled brackets',
-        answer: 'b'
+        question: 'What do you put around a string?',
+        answers: [
+            { text: 'Paranthesis', correct: false },
+            { text: 'Quotations', correct: true },
+            { text: 'Pound sign', correct: false },
+            { text: 'Angled brackets', correct: false }
+        ]
+        
     }, 
     {
-        question: 'What are the keys you press to get the starter code for HTML?\n(a) @ + Tab\n\
-        (b) Tab + #\n(c) ^ + Enter\n(d) ! + Tab',
-        answer: 'd'
+        question: 'What are the keys you press to get the starter code for HTML?',
+        answers: [
+            { text: '@ + Tab', correct: false },
+            { text: 'Tab + #', correct: false },
+            { text: '^ + Enter', correct: false },
+            { text: '! + Tab', correct: true }
+        ]
     }
     
 ];
+    
 
 function init() {
     displayPrompt()
