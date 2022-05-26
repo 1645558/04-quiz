@@ -14,6 +14,8 @@ var highScore = 0;
 
 var prompts = 'starting';
 
+var position = 0;
+
 var timeLeft = 60;
 
 function displayPrompt() {
@@ -35,10 +37,6 @@ function displayPrompt() {
 }
 
 function displayAnswers() {
-    console.log(questions[0])
-}
-
-function displayQuestions() {
     console.log(questions[0].answers);
     var answers = questions[0].answers;
 
@@ -49,10 +47,19 @@ function displayQuestions() {
         var button = document.getElementsByClassName('answer-buttons')[i];
         button.textContent = choice.text
     }
+
+}
+
+function displayQuestions() {
+    for (var i = 0; i < questions.length; i++) {
+        console.log(questions[i]);
+        quizEL;
+    }
 }
 
 var questions = [
     {
+        num: 1,
         question: 'What does HTML stand for?',
         answers: [
             { text: 'Hypertext Markup Language', correct: false },
@@ -63,6 +70,7 @@ var questions = [
           
     },
     {
+        num: 2,
         question: 'What does * do in CSS?',
         answers: [
             { text: 'Put snowflakes on the page', correct: false },
@@ -73,6 +81,7 @@ var questions = [
         ]
     },
     {
+        num: 3,
         question: 'What is the bigest header on an html page?',
         answers: [
             { text: 'H2', correct: false },
@@ -83,6 +92,7 @@ var questions = [
 
     },
     {
+        num: 4,
         question: 'What do you put around a string?',
         answers: [
             { text: 'Paranthesis', correct: false },
@@ -93,6 +103,7 @@ var questions = [
 
     },
     {
+        num: 5,
         question: 'What are the keys you press to get the starter code for HTML?',
         answers: [
             { text: '@ + Tab', correct: false },
@@ -126,9 +137,9 @@ startBtn.addEventListener('click', function () {
     }, 1000);
 
 });
-init()
-displayQuestions()
-displayAnswers()
+init();
+displayQuestions();
+displayAnswers();
 
 
 
