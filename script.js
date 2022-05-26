@@ -75,9 +75,12 @@ var questions = [
     }
 ];
 
+function setTime() {
+    
+}
+
 function displayQuestions() {
     questionsEL.textContent = questions[0];
-    displayTime()
 }
 
 function displayTime() {
@@ -89,13 +92,15 @@ startBtn.addEventListener('click', function () {
     prompts = 'quiz';
     var timeInterval = setInterval(function () {
         timeLeft--;
-        
+        displayTime();
         if (timeLeft === 0) {
             alert('Time is up!')
             clearInterval(timeInterval);
         }
     }, 1000);
 });
+setTime();
+
 
 
 
