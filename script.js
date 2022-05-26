@@ -39,8 +39,15 @@ function startGame() {
 }
 
 function displayQuestions() {
-    for (var i=0; i < questions.length; i++) {
-        
+    console.log(questions[0].asswers);
+    var answers = questions[0].answers;
+
+    for (var i=0; i < document.getElementsByClassName('answer-buttons').length; i++) {
+        console.log(questions[i].answers[i]);
+        var choice = questions[0].answers[i];
+        console.log(document.getElementsByClassName('answer-buttons')[i]);
+        var button = document.getElementsByClassName('answer-buttons')[i];
+        button.textContent = choice.text
     } 
 }
 
@@ -121,6 +128,7 @@ startBtn.addEventListener('click', function() {
 
 });
 init()
+displayQuestions()
 
 
 
