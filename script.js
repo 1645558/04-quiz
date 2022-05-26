@@ -4,7 +4,7 @@ var quizEL = document.querySelector('#quiz');
 var endEL = document.querySelector('#end');
 var timeEL = document.querySelector('#timer');
 var submitBtn = document.querySelector('submit');
-var questionsEL = document.querySelector('#questions');
+var questionsTextEL = document.querySelector('#questions-text');
 var choiceA = document.querySelector('#A');
 var choiceB = document.querySelector('#B');
 var choiceC = document.querySelector('#C');
@@ -14,7 +14,7 @@ var highScore = 0;
 
 var prompts = 'starting';
 
-var position = 0;
+var currentQuestion = 0;
 
 var timeLeft = 60;
 
@@ -38,9 +38,8 @@ function displayPrompt() {
 
 function displayAnswers() {
     console.log(questions[0].answers);
-    var answers = questions[0].answers;
 
-    questionsEL.textContent = questions[0].question;
+    questionsTextEL.textContent = questions[0].question;
 
     for (var i = 0; i < document.getElementsByClassName('answer-buttons').length; i++) {
         console.log(questions[i].answers[i]);
@@ -50,63 +49,65 @@ function displayAnswers() {
         button.textContent = choice.text
     }
 
+    if (currentQuestion < questions.length) {
+        currentQuestion++;
+    }
+
 }
 
 
 var questions = [
     {
-        num: 1,
         question: 'What does HTML stand for?',
         answers: [
-            { text: 'Hypertext Markup Language', correct: false },
-            { text: 'Hypertext Maker Language', correct: false },
-            { text: 'Hometext Markup Language', correct: true },
-            { text: 'None of the above', correct: false }
-        ]
+            { text: '1. Hypertext Markup Language'},
+            { text: '2. Hypertext Maker Language'},
+            { text: '3. Hometext Markup Language'},
+            { text: '4. None of the above' },
+        ],
+            correctAnswer: '1'
           
     },
     {
-        num: 2,
         question: 'What does * do in CSS?',
         answers: [
-            { text: 'Put snowflakes on the page', correct: false },
-            { text: 'Change the header elements', correct: false },
-            { text: 'Changes the style of everything on the page', correct: true },
-            { text: 'Moves elements by 10px', correct: false }
-
-        ]
+            { text: '1. Put snowflakes on the page'},
+            { text: '2. Change the header elements'},
+            { text: '3. Changes the style of everything on the page'},
+            { text: '4. Moves elements by 10px'}
+        ],
+        correctAnswer: '3'
     },
     {
-        num: 3,
         question: 'What is the bigest header on an html page?',
         answers: [
-            { text: 'H2', correct: false },
-            { text: 'H3', correct: false },
-            { text: 'H1', correct: true },
-            { text: 'H6', correct: false }
-        ]
-
+            { text: 'H2'},
+            { text: 'H3'},
+            { text: 'H1'},
+            { text: 'H6'}
+        ],
+        correctAnswer: '3'
     },
     {
-        num: 4,
         question: 'What do you put around a string?',
         answers: [
-            { text: 'Paranthesis', correct: false },
-            { text: 'Quotations', correct: true },
-            { text: 'Pound sign', correct: false },
-            { text: 'Angled brackets', correct: false }
-        ]
+            { text: 'Paranthe' },
+            { text: 'Quotations'},
+            { text: 'Pound sign' },
+            { text: 'Angled brackets'}
+        ],
+        correctAnswer: '2'
 
     },
     {
-        num: 5,
         question: 'What are the keys you press to get the starter code for HTML?',
         answers: [
-            { text: '@ + Tab', correct: false },
-            { text: 'Tab + #', correct: false },
-            { text: '^ + Enter', correct: false },
-            { text: '! + Tab', correct: true }
-        ]
+            { text: '@ + Tab'},
+            { text: 'Tab + #'},
+            { text: '^ + Enter'},
+            { text: '! + Tab'}
+        ],
+        correctAnswer: '4'
     }
 
 ];
@@ -135,7 +136,6 @@ startBtn.addEventListener('click', function () {
 });
 init();
 displayAnswers();
-
 
 
 
