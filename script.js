@@ -1,5 +1,5 @@
-var startBtn = document.querySelector('#start button');
-var startEL = document.querySelector('#start');
+var startBtn = document.querySelector('#start');
+var startEL = document.querySelector('#starting')
 var quizEL = document.querySelector('#quiz');
 var endEL = document.querySelector('#end');
 var timeEL = document.querySelector('#timer');
@@ -10,12 +10,12 @@ var choiceB = document.querySelector('#B')
 var choiceC = document.querySelector('#C')
 var choiceD = document.querySelector('#D')
 
-var prompts = 'start';
+var prompts = 'starting';
 
 var timeLeft = 60;
 
 function displayPrompt() {
-    if (prompts === 'start') {
+    if (prompts === 'starting') {
         startEL.style.display = 'block'
         quizEL.style.display = 'none'
         endEL.style.display = 'none'
@@ -76,7 +76,7 @@ var questions = [
 ];
 
 function setTime() {
-    
+
 }
 
 function displayQuestions() {
