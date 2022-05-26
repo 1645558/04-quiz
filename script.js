@@ -34,49 +34,36 @@ function displayPrompt() {
 
 var questions = [
     {
-        questions: 'What does HTML stand for?',
-        choiceA: 'Hyper Text Markup Language',
-        choiceB: 'Hyperlinks and Text Markup Language',
-        choiceC: 'Home Tool Markup Language',
-        choiceD: 'How The Monsters Look',
-        correct: 'A'
+        question: 'What does HTML stand for?\n(a) Hypertext Markup Language\n\
+        (b) Hypertext Maker Language\n(c) Hometext Marker Language\n(d) None of the above',
+        answer: 'a'
     },
     {
-        questions: 'What do you put around a string?',
-        choiceA: 'Paranthesis',
-        choiceB: 'Curly brackets',
-        choiceC: 'Quotations',
-        choiceD: 'Pound sign',
-        correct: 'C'
+        question: 'What does * do in CSS?\n(a) Put snowflakes on the page\n\
+        (b) Change the header elements\n(c) CHanges the style of everything on the page\n\
+        (d) Moves elements by 10px',
+        answer: 'c' 
     },
     {
-        questions: 'What does the * do in CSS',
-        choiceA: 'Applies snowflakes to an element',
-        choiceB: 'Applies styling to the entire page',
-        choiceC: 'Applies styling to all the other *',
-        choiceD: 'None of the above',
-        correct: 'B'
+        question: 'What is the bigest header on an html page?\n(a) H2\n\
+        (b) H1\n(c) H3\n(d) H6',
+        answer: 'b'
     },
     {
-        questions: 'Which is the biggest header on an html page',
-        choiceA: 'H1',
-        choiceB: 'H2',
-        choiceC: 'H3',
-        choiceD: 'H6',
-        correct: 'A'
-    },
+        question: 'What do you put around a string?\n(a) Paranthesis\n\
+        (b) Quotations\n(c) Pound sign\n(d) Angled brackets',
+        answer: 'b'
+    }, 
     {
-        questions: 'What are the keys you press to get the bones of an HTML started for you',
-        choiceA: '@ + Shift',
-        choiceB: 'Tab + p',
-        choiceC: 'Alt + Enter',
-        choiceD: '! + Tab',
-        correct: 'D'
+        question: 'What are the keys you press to get the starter code for HTML?\n(a) @ + Tab\n\
+        (b) Tab + #\n(c) ^ + Enter\n(d) ! + Tab',
+        answer: 'd'
     }
+    
 ];
 
-function setTime() {
-
+function init() {
+    displayPrompt()
 }
 
 function displayQuestions() {
@@ -87,9 +74,10 @@ function displayTime() {
     timeEL.textContent = 'Time left: ' + timeLeft;
 }
 
-startBtn.addEventListener('click', function () {
-    displayPrompt();
+startBtn.addEventListener('click', function() {
     prompts = 'quiz';
+    displayPrompt();
+    displayQuestions()
     var timeInterval = setInterval(function () {
         timeLeft--;
         displayTime();
@@ -99,7 +87,7 @@ startBtn.addEventListener('click', function () {
         }
     }, 1000);
 });
-setTime();
+init()
 
 
 
