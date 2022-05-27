@@ -103,8 +103,8 @@ answerForQuestions.addEventListener('click', function () {
     console.log('x has been clicked');
 
     if (currentQuestion < questions.length) {
-        questions[currentQuestion]++;
-        displayAnswers();
+        questions[currentQuestion++];
+        displayAnswers(questions[currentQuestion]);
     }
 })
 
@@ -130,7 +130,7 @@ startBtn.addEventListener('click', function () {
 
 });
 init();
-displayAnswers();
+displayAnswers(questions[currentQuestion]);
 
 
 
