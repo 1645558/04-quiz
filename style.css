@@ -1,1 +1,19 @@
+* {
+    text-align: center;
+}
 
+.answer-buttons {
+    background-color: rgb(187, 138, 233);
+}
+
+#start {
+    background-color: rgb(187, 138, 233);
+}
+
+#highscore {
+    background-color: rgb(187, 138, 233);
+}
+
+body {
+    background-color: rgb(182, 182, 255);
+}

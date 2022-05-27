@@ -88,12 +88,12 @@ function displayPrompt() {
     }
 }
 
-function displayAnswers() {
-
-    questionsTextEL.textContent = questions[0].question;
+function displayAnswers(event) {
+    console.log(event)
+    questionsTextEL.textContent = event.question;
 
     for (var i = 0; i < document.getElementsByClassName('answer-buttons').length; i++) {
-        var choice = questions[0].answers[i];
+        var choice = event.answers[i];
         var button = document.getElementsByClassName('answer-buttons')[i];
         button.textContent = choice.text
     }
@@ -105,8 +105,16 @@ answerForQuestions.addEventListener('click', function () {
     if (currentQuestion < questions.length) {
         questions[currentQuestion++];
         displayAnswers(questions[currentQuestion]);
+    } else if (currentQuestion > 5) {
+        display('Game over!')
     }
 })
+
+function checkAnswer() {
+    if (condition) {
+        
+    }
+}
 
 function init() {
     displayPrompt();
