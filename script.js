@@ -15,6 +15,61 @@ var currentQuestion = 0;
 
 var timeLeft = 60;
 
+var questions = [
+    {
+        question: 'What does HTML stand for?',
+        answers: [
+            { text: '1. Hypertext Markup Language' },
+            { text: '2. Hypertext Maker Language' },
+            { text: '3. Hometext Markup Language' },
+            { text: '4. None of the above' },
+        ],
+        correctAnswer: '1'
+
+    },
+    {
+        question: 'What does * do in CSS?',
+        answers: [
+            { text: '1. Put snowflakes on the page' },
+            { text: '2. Change the header elements' },
+            { text: '3. Changes the style of everything on the page' },
+            { text: '4. Moves elements by 10px' }
+        ],
+        correctAnswer: '3'
+    },
+    {
+        question: 'What is the bigest header on an html page?',
+        answers: [
+            { text: 'H2' },
+            { text: 'H3' },
+            { text: 'H1' },
+            { text: 'H6' }
+        ],
+        correctAnswer: '3'
+    },
+    {
+        question: 'What do you put around a string?',
+        answers: [
+            { text: 'Paranthe' },
+            { text: 'Quotations' },
+            { text: 'Pound sign' },
+            { text: 'Angled brackets' }
+        ],
+        correctAnswer: '2'
+
+    },
+    {
+        question: 'What are the keys you press to get the starter code for HTML?',
+        answers: [
+            { text: '@ + Tab' },
+            { text: 'Tab + #' },
+            { text: '^ + Enter' },
+            { text: '! + Tab' }
+        ],
+        correctAnswer: '4'
+    }
+];
+
 function displayPrompt() {
     if (prompts === 'starting') {
         startEL.style.display = 'block'
@@ -42,66 +97,16 @@ function displayAnswers() {
         var button = document.getElementsByClassName('answer-buttons')[i];
         button.textContent = choice.text
     }
-
 }
 
+answerForQuestions.addEventListener('click', function () {
+    console.log('x has been clicked');
 
-var questions = [
-    {
-        question: 'What does HTML stand for?',
-        answers: [
-            { text: '1. Hypertext Markup Language'},
-            { text: '2. Hypertext Maker Language'},
-            { text: '3. Hometext Markup Language'},
-            { text: '4. None of the above' },
-        ],
-            correctAnswer: '1'
-          
-    },
-    {
-        question: 'What does * do in CSS?',
-        answers: [
-            { text: '1. Put snowflakes on the page'},
-            { text: '2. Change the header elements'},
-            { text: '3. Changes the style of everything on the page'},
-            { text: '4. Moves elements by 10px'}
-        ],
-        correctAnswer: '3'
-    },
-    {
-        question: 'What is the bigest header on an html page?',
-        answers: [
-            { text: 'H2'},
-            { text: 'H3'},
-            { text: 'H1'},
-            { text: 'H6'}
-        ],
-        correctAnswer: '3'
-    },
-    {
-        question: 'What do you put around a string?',
-        answers: [
-            { text: 'Paranthe' },
-            { text: 'Quotations'},
-            { text: 'Pound sign' },
-            { text: 'Angled brackets'}
-        ],
-        correctAnswer: '2'
-
-    },
-    {
-        question: 'What are the keys you press to get the starter code for HTML?',
-        answers: [
-            { text: '@ + Tab'},
-            { text: 'Tab + #'},
-            { text: '^ + Enter'},
-            { text: '! + Tab'}
-        ],
-        correctAnswer: '4'
+    if (currentQuestion < questions.length) {
+        questions[currentQuestion]++;
+        displayAnswers();
     }
-
-];
-
+})
 
 function init() {
     displayPrompt();
@@ -110,16 +115,6 @@ function init() {
 function displayTime() {
     timeEL.textContent = 'Time left: ' + timeLeft;
 }
-
-answerForQuestions.addEventListener('click', function () {
-    console.log('x has been clicked');
-
-    if (currentQuestion < questions.length) {
-        questions[currentQuestion]++;
-    }
-    displayAnswers();
-
-})
 
 startBtn.addEventListener('click', function () {
     prompts = 'quiz';
