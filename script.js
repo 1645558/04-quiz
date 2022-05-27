@@ -1,13 +1,13 @@
 var startBtn = document.querySelector('#start');
-var startEL = document.querySelector('#starting')
+var startEL = document.querySelector('#starting');
 var quizEL = document.querySelector('#quiz');
 var endEL = document.querySelector('#end');
 var timeEL = document.querySelector('#timer');
 var submitBtn = document.querySelector('#submit');
 var questionsTextEL = document.querySelector('#questions-text');
-var answerForQuestions = document.querySelector('.answer-buttons')
+var answerForQuestions = document.querySelector('.answer-buttons');
 
-var highScore = 0;
+var increase = 1;
 
 var prompts = 'starting';
 
@@ -50,7 +50,7 @@ var questions = [
     {
         question: 'What do you put around a string?',
         answers: [
-            { text: 'Paranthe' },
+            { text: 'Paranthesis' },
             { text: 'Quotations' },
             { text: 'Pound sign' },
             { text: 'Angled brackets' }
@@ -86,7 +86,7 @@ function displayPrompt() {
         quizEL.style.display = 'none'
         endEL.style.display = 'block'
     }
-}
+};
 
 function displayAnswers(event) {
     console.log(event)
@@ -96,33 +96,36 @@ function displayAnswers(event) {
         var choice = event.answers[i];
         var button = document.getElementsByClassName('answer-buttons')[i];
         button.textContent = choice.text
+        console.log(document.getElementsByClassName('answer-buttons')[i])
     }
-}
-
-answerForQuestions.addEventListener('click', function () {
-    console.log('x has been clicked');
-
-    if (currentQuestion < questions.length) {
-        questions[currentQuestion++];
-        displayAnswers(questions[currentQuestion]);
-    } else if (currentQuestion > 5) {
-        display('Game over!')
-    }
-})
-
-function checkAnswer() {
-    if (condition) {
-        
-    }
-}
+    
+};
 
 function init() {
     displayPrompt();
-}
+};
 
 function displayTime() {
     timeEL.textContent = 'Time left: ' + timeLeft;
-}
+};
+
+quizEL.addEventListener('click', function(event) {
+    if (event.target.className === 'answer-buttons') {
+        event.target.textContent
+        console.log(event.target.textContent);
+
+        event.target.textContent === questions.correctAnswer;
+        alert('Good Job!')
+        
+
+        if (currentQuestion < questions.length) {
+            questions[currentQuestion++];
+            displayAnswers(questions[currentQuestion]);
+        } 
+    } else {
+        
+    }
+});
 
 startBtn.addEventListener('click', function () {
     prompts = 'quiz';
